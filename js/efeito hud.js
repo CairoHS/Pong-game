@@ -1,3 +1,5 @@
+
+
 class Estrelas {
     constructor() {
         this.estrelas = document.querySelectorAll("[data-estrela]");
@@ -35,17 +37,18 @@ class Estrelas {
             }
 
 
-            
+
         }, 200)
         setTimeout(() => {
             estrela.style.transition = " " + tempo + "s all cubic-bezier(1, 1, 0, 0)"
-        }, 300  )
+        }, 300)
         setTimeout(() => {
             estrela.style.left = "110%";
         }, 500)
-        console.log(tempo + 5 * 1000)
-        setTimeout(() => { this.movimento(estrela) },(tempo* 1000) + 10)
+        setTimeout(() => { this.movimento(estrela) }, (tempo * 1000) + 10)
     }
 }
 
-let movimentoEstrelas = new Estrelas();
+
+
+export default Estrelas;
