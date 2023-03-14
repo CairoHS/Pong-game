@@ -1,7 +1,10 @@
 
 class Barra {
     constructor(){
-        this.altura;
-        this.comprimento
+        this.altura = "5%";
+        this.comprimento = "4px";
     }
 }
+
+export default Barra;
+
