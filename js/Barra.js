@@ -11,6 +11,8 @@ class Barra {
         this.colocarNaTela();
         if (this.jogador == "yes")
             this.controles();
+        else
+        this.maquina();
 
     }
     colocarNaTela() {
@@ -29,6 +31,10 @@ class Barra {
          this.botoes[1].addEventListener("click", () => {
             this.barra.style.top = (+this.barra.style.top.replace("%", "") + 5 + "%");
        })
+    }
+
+    maquina(){
+        
     }
 
 

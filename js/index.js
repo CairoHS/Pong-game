@@ -1,5 +1,6 @@
 import Estrelas from './efeito-estrela.js'
 import Barra from './Barra.js';
+import Bola from './bola.js'
 
 
 let comecar = document.querySelector("#btComecar");
@@ -14,6 +15,7 @@ comecar.addEventListener("click", () => {
     document.querySelector("#game").style.zIndex = "1";
     movimentoEstrelas.parar();
     let barra1 = new Barra(jogo, "yes", botoesGame);
+    let bola = new Bola(jogo);
    // let barra2 = new Barra(jogo, "no");
 
 });
