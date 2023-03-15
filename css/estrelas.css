@@ -2,8 +2,7 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: white;
+    background-color: var(--cor-estrela);
     border-radius: 50%;
-    left: 0;
-
+    left: -50%;
 }

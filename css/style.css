@@ -5,9 +5,11 @@
 
 :root{
     --fundo: #0b1026;
-    --cor-nomes-menu : white
-    
-
+    --cor-nomes-menu : white;
+    --tamanho-titulo : 5rem;
+    --cor-titulo-1: #15f4ee;
+    --cor-titulo-2: #FF10F0;
+    --cor-estrela: white;
 }
 
 

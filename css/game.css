@@ -11,7 +11,34 @@
     position: absolute;
     width: 0;
     height: 100%;
-    border: white 2px dashed;
+    border: white 3px dashed;
     left: 50%;
-    transform: translateX(50%);
+    transform: translateX(-50%);
+}
+
+.barra{
+    position: absolute;
+    background: white;
+    height: 15%;
+    width: 1.5%;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.game__botoes {
+    position: absolute;
+    width: 49%;
+    height: 49%;
+    background-color: transparent;
+    z-index: 5;
+    right: 0;
+}
+
+.sobe{
+top:0;
+}
+
+.desce{
+bottom: 0;
 }

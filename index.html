@@ -18,11 +18,11 @@
 
     <section class="menu" id="hud">
         <h1 class="menu__titulo">Pong</h1>
-        <span class="menu__stitulo efeito1">Pong</span>
-        <span class="menu__stitulo efeito2">Pong</span>
-        <div class="menu__botoes">
-            <button class="menu__opcoes" id="comecar">Começar</button>
-            <button class="menu__opcoes">Leveis</button>
+        <span class="menu__stitulo titulo__efeito1">Pong</span>
+        <span class="menu__stitulo titulo__efeito2">Pong</span>
+        <div class="menu__caixa">
+            <button class="menu__botao" id="btComecar">Começar</button>
+            <button class="menu__botao">Leveis</button>
         </div>
         <div class="estrela" data-estrela></div>
         <div class="estrela" data-estrela></div>
@@ -37,8 +37,10 @@
     </section>
     <section class="game" id="game">
         <div class="linha"></div>
+        <div class="game__botoes sobe" data-gameBotao="btSobe"></div>
+        <div class="game__botoes desce" data-gameBotao="btDesce"> </div>
     </section>
-    <script type="module"src="js/hud.js"></script>
+    <script type="module"src="js/index.js"></script>
 </body>
 
 

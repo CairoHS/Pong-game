@@ -1,87 +1,84 @@
-.menu{
+.menu {
     position: absolute;
     width: 100%;
     height: 100%;
     transform-origin: center center;
-    background-color:var(--fundo);
+    background-color: var(--fundo);
     color: var(--cor-nomes-menu);
-    position: relative;
 }
 
-.menu__titulo,.menu__stitulo{
-    font-size: 5rem;
+.menu__titulo,
+.menu__stitulo {
     position: absolute;
-    top:25%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    background-color: transparent;
+    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 50%;
+    background-color: transparent;  
+    animation: mechendo 3s infinite; 
+}
+
+.menu__titulo {
+    font-size: var(--tamanho-titulo);
+    color: var(--cor-nomes-menu);
     z-index: 2;
-    color: var(--cor-nomes-menu)
 }
-
-.menu__titulo,.menu__stitulo{
-    animation: mechendo 3s infinite;
-    
+.titulo__efeito1 {
+    font-size: calc(var(--tamanho-titulo) + 0.3rem);
+    color: var(--cor-titulo-1);
+    z-index: 1;
 }
-
-
-
-@keyframes mechendo {
-    0%{transform:translate(-50%,-50%) rotate(-6deg);}
-    50%{ transform:translate(-50%,-50%) rotate(6deg);}
-    100%{ transform:translate(-50%,-50%) rotate(-6deg);}
-    
-}
-
-.efeito2{
-    font-size: 5.6rem;
-    color: #FF10F0;
+.titulo__efeito2 {
+    font-size: calc(var(--tamanho-titulo) + 0.6rem);
+    color: var(--cor-titulo-2);
     z-index: 0;
 }
 
-.efeito1{
-    font-size: 5.3rem;
-    color:#15f4ee;
-    z-index: 1;
+@keyframes mechendo {
+    0% {
+        transform: translate(-50%, -50%) rotate(-6deg);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) rotate(6deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-6deg);
+    }
+
 }
 
 
-.menu__botoes{
+
+
+
+.menu__caixa {
     position: absolute;
-    transform: translate(-50%,-50%);
+    height: 40%;
     width: 100%;
-    top:60%;
-    left:50%;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    height: 40%;
     justify-content: space-around;
 }
 
-.menu__opcoes{
+.menu__botao{
     color: var(--cor-nomes-menu);
+    border: 0px;
     background-color: transparent;
-    border: 1px solid transparent;
     font-size: 1.5rem;
     width: 100%;
     padding: 2rem;
 }
 
-#comecar:active ~ .menu{
-    width: 4px;
-    height: 100%;
-
-}
-
-.menu__opcoes:hover{
+.menu__botao:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.diminuir{
+.diminuir {
     overflow: hidden;
-    height: 100%;
-    border: 10px gray solid;
-    transition: 0.5s all;
-    transform: scale(0,1);
+    transition: 0.3s all;
+    transform: scale(0, 1);
 }
-
