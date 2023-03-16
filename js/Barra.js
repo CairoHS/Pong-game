@@ -62,6 +62,39 @@ class Barra {
             clearInterval(clickDown);
         });
 
+        //para celular 
+
+        this.botoes[0].addEventListener("touchstart", () => {
+
+            clickUp = setInterval(() => {
+                if(this.Y - (this.barra.clientHeight/2) > 0){
+                    this.Y -= this.velocidade;
+                }
+                this.mudaLocalização();
+            }, 20)
+
+        });
+        this.botoes[0].addEventListener("touchend", () => {
+
+            clearInterval(clickUp);
+        });
+
+
+        this.botoes[1].addEventListener("touchstart", () => {
+
+            clickDown = setInterval(() => {
+                if(this.Y + (this.barra.clientHeight/2) < this.tela.clientHeight){
+                    this.Y += this.velocidade;
+                }
+                this.mudaLocalização();
+            }, 20)
+
+        });
+        this.botoes[1].addEventListener("touchend", () => {
+
+            clearInterval(clickDown);
+        });
+
     }
 
     mudaLocalização() {
