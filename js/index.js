@@ -15,7 +15,8 @@ comecar.addEventListener("click", () => {
     document.querySelector("#game").style.zIndex = "1";
     movimentoEstrelas.parar();
     let barra1 = new Barra(jogo, "yes", botoesGame);
-    let bola = new Bola(jogo);
+    let barra2 = new Barra(jogo, "no");
+    let bola = new Bola(jogo,barra1,barra2);
    // let barra2 = new Barra(jogo, "no");
 
 });
