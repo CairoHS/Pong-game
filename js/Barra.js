@@ -1,6 +1,6 @@
 
 class Barra {
-    constructor(telaDoJogo, jogador = "", botoes = "") {
+    constructor(telaDoJogo, jogador = "", botoes = ["", ""]) {
         this.tela = telaDoJogo;
         this.jogador = jogador;
         this.botoes = botoes;
@@ -14,9 +14,6 @@ class Barra {
         this.colocarNaTela();
         if (this.jogador == "yes")
             this.controles();
-        else
-            this.maquina();
-
     }
     colocarNaTela() {
         let barra = document.createElement("div");
@@ -32,25 +29,23 @@ class Barra {
         let clickUp;
         let clickDown;
         this.botoes[0].addEventListener("mousedown", () => {
-
             clickUp = setInterval(() => {
-                if(this.Y - (this.barra.clientHeight/2) > 0){
+                if (this.Y - (this.barra.clientHeight / 2) > 0) {
                     this.Y -= this.velocidade;
                 }
+
                 this.mudaLocalização();
             }, 20)
 
         });
         this.botoes[0].addEventListener("mouseup", () => {
-
             clearInterval(clickUp);
         });
 
 
         this.botoes[1].addEventListener("mousedown", () => {
-
             clickDown = setInterval(() => {
-                if(this.Y + (this.barra.clientHeight/2) < this.tela.clientHeight){
+                if (this.Y + (this.barra.clientHeight / 2) < this.tela.clientHeight) {
                     this.Y += this.velocidade;
                 }
                 this.mudaLocalização();
@@ -64,45 +59,38 @@ class Barra {
 
         //para celular 
 
-        this.botoes[0].addEventListener("touchstart", () => {
-
-            clickUp = setInterval(() => {
-                if(this.Y - (this.barra.clientHeight/2) > 0){
-                    this.Y -= this.velocidade;
-                }
-                this.mudaLocalização();
-            }, 20)
-
-        });
-        this.botoes[0].addEventListener("touchend", () => {
-
-            clearInterval(clickUp);
-        });
-
-
-        this.botoes[1].addEventListener("touchstart", () => {
-
-            clickDown = setInterval(() => {
-                if(this.Y + (this.barra.clientHeight/2) < this.tela.clientHeight){
-                    this.Y += this.velocidade;
-                }
-                this.mudaLocalização();
-            }, 20)
-
-        });
-        this.botoes[1].addEventListener("touchend", () => {
-
-            clearInterval(clickDown);
-        });
-
+      //  this.botoes[0].addEventListener("touchstart", () => {
+      //      clickUp = setInterval(() => {
+      //          if (this.Y - (this.barra.clientHeight / 2) > 0) {
+      //              this.Y -= this.velocidade;
+      //          }
+      //          this.mudaLocalização();
+      //      }, 20)
+//
+      //  });
+      //  this.botoes[0].addEventListener("touchend", () => {
+      //      clearInterval(clickUp);
+      //  });
+      //  
+//
+    //    this.botoes[1].addEventListener("touchstart", () => {
+    //        clickDown = setInterval(() => {
+    //            if (this.Y + (this.barra.clientHeight / 2) < this.tela.clientHeight) {
+    //                this.Y += this.velocidade;
+    //            }
+    //            this.mudaLocalização();
+    //        }, 20)
+//
+    //    });
+    //    this.botoes[1].addEventListener("touchend", () => {
+    //        passive: true;
+    //        clearInterval(clickDown);
+    //    });
+//
     }
 
     mudaLocalização() {
         this.barra.style.top = this.Y + "px";
-    }
-
-    maquina() {
-
     }
 }
 
