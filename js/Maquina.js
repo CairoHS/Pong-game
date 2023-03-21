@@ -10,25 +10,32 @@ class Maquina {
     }
 
     iniciar() {
-        this.randomMovimento();
+        this.randomMovimento(this.barra.rigth);
     }
-    randomMovimento() {
+    randomMovimento(direita) {
+        let botao = this.barra.botoes;
+        this.barra.controleMaquina(botao);
+        let max = 0;
+        if(direita == "yes")
+        max = this.tela.clientWidth
+        setInterval(() => {
 
+            let distancia = max - this.bola.X;
+            let distanciaMaxima = (distancia > this.tela.clientHeight ? this.tela.clientHeight :distancia);
+            let local = (Math.random() * distanciaMaxima - (distanciaMaxima/2));
+            this.local = (this.bola.Y + (local / this.nivel));
+            
+        }, 1000 / this.nivel)
 
         setInterval(() => {
-            let distancia = this.bola.Y;
-            let distanciaMaxima = (this.distancia > this.tela.clientHeigth ? this.tela.clientHeigth : this.distancia);
-            this.local = Math.random() * (distanciaMaxima / 2) - distanciaMaxima;
-        }, 2000 / this.nivel)
-
-        setInterval(() => {
-            if (this.local >= this.bola.X) {
-                this.barra.this.botoes[0].click;
+             
+            if (this.local < this.barra.Y) {
+                botao[0].click();
             }
-            else {
-                this.barra.botoes[1].click;
+            if (this.local > this.barra.Y){
+                botao[1].click();
             }
-        }, 100)
+        }, 20)
     }
 }
 

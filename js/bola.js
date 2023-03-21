@@ -1,16 +1,17 @@
 
 class Bola {
-    constructor(telaDoJogo, barra1, barra2) {
+    constructor(telaDoJogo, barraR, barraL, placar) {
         this.tela = telaDoJogo;
         this.diametro = 15;
         this.Y = (window.innerHeight / 2)
         this.X = (window.innerWidth / 2)
+        this.vel = [3, 2];
+        this.aceleracao = 0.5;
         this.esfera;
-        this.barra1 = barra1;
-        this.barra2 = barra2
-        this.vel = [1, 1];
+        this.barra1 = barraR;
+        this.barra2 = barraL
+        this.placar = placar;
         this.comecar();
-        this.barra;
     }
     comecar() {
         this.colonaNaTela();
@@ -29,7 +30,6 @@ class Bola {
     }
 
     movimentoEsfera() {
-
         setInterval(() => {
             this.X += this.vel[0];
             this.Y += this.vel[1];
@@ -40,12 +40,15 @@ class Bola {
             if (this.X + (this.diametro / 2) > this.tela.clientWidth || this.X - (this.diametro / 2) < 0) {
                 this.X -= this.vel[0] * 2;
                 this.vel[0] = -this.vel[0];
-
             }
-           this.colisao();
+            this.colisao();
+            this.ponto();
             this.mudaLocalização();
+        },15)
 
-        }, 15)
+        setInterval(() =>{
+       
+        },15)
     }
 
     mudaLocalização() {
@@ -53,21 +56,33 @@ class Bola {
         this.esfera.style.left = this.X + "px";
     }
     colisao() {
-      
-        if (this.Y <= this.barra1.Y + this.barra1.barra.clientHeight && this.Y >= this.barra1.Y - this.barra1.barra.clientHeight) {
-        
-            if (this.X >= window.innerWidth - this.barra1.X - 2) {
-                this.X -= this.vel[0] * 2;
-                this.vel[0] = -this.vel[0];
+        if (this.Y <= this.barra1.Y + this.barra1.barra.clientHeight/2 && this.Y >= this.barra1.Y - this.barra1.barra.clientHeight/2){
+            if (this.X + (this.diametro/2) >= (this.barra1.X - 1)) {
+                this.X -= (this.vel[0] * 2);
+                this.vel[0] = -(this.vel[0] + this.aceleracao);
+                this.vel[1] += +((Math.random() * 2) - 1).toFixed(2);
+                console.log(this.vel[0],this.vel[1]);
             }
         }
-        if (this.Y <= this.barra2.Y + this.barra2.barra.clientHeight && this.Y >= this.barra2.Y - this.barra2.barra.clientHeight) {
-        
-            if (this.X <= this.barra2.X  + this.barra2.barra.clientWidth + 2) {
-                this.X -= this.vel[0] * 2;
-                this.vel[0] = -this.vel[0];
+        if (this.Y <= this.barra2.Y + this.barra2.barra.clientHeight/2 && this.Y >= this.barra2.Y - this.barra2.barra.clientHeight/2){
+           
+            if (this.X - (this.diametro/2) <= (this.barra2.X + this.barra2.barra.clientWidth + 1)) {
+                this.X -= (this.vel[0] * 2);
+                this.vel[0] = -(this.vel[0] - this.aceleracao);
+                this.vel[1] += +((Math.random() * 2) - 1).toFixed(2);
+                console.log(this.vel[0],this.vel[1]);
             }
         }
+    }
+
+    ponto() {
+        if(this.X <= (this.diametro/2) + 2){
+            this.placar.aumentaPonto(1);
+        }
+        if(this.X >= this.tela.clientWidth - (this.diametro/2)  - 2){
+            this.placar.aumentaPonto(0);
+        }
+
     }
 }
 
