@@ -1,0 +1,89 @@
+$_cor-fundo-botao: rgba(255, 255, 255, 0.2);
+
+@mixin _animacao ( $deg ){
+    transform: translate( -50% , -50% ) rotate( $deg );
+}
+
+.menu {
+    background-color: $cor-fundo;
+    color: $cor-nomes-menu;
+    height: 100%;
+    transform-origin: center center;
+    width: 100%;
+    @extend .absolute-centralizado;
+
+
+    &__titulo,
+    &__subtitulo {
+        animation: mechendo 3s infinite;
+        background-color: transparent;
+        left: 50%;
+        top: 25%;
+        @extend .absolute-centralizado;
+    }
+
+    &__titulo {
+        color: $cor-titulo;
+        font-size: $tamanho-titulo;
+        z-index: 2;
+    }
+
+    &__subtitulo {
+        &--subtitulo1{
+          @include subtitulo( $cor-subtitulo-1 , 0.3rem , 1);
+        }
+        &--subtitulo2{
+            @include subtitulo( $cor-subtitulo-1 , 0.6rem , 0);
+        }
+    }
+
+    &__caixa {
+        display: flex;
+        flex-direction: column;
+        height: 40%;
+        justify-content: space-around;
+        left: 50%;
+        top: 60%;
+        width: 100%;
+        @extend .absolute-centralizado;
+    }
+
+    &__botao {
+        color: $cor-nomes-menu;
+        background-color: transparent;
+        border: 0px;
+        font-size: 1.5rem;
+        padding: 2rem;
+        width: 100%;
+
+        &:hover{
+            background-color: $_cor-fundo-botao;
+        }
+    }
+
+    &__estrela{
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: $cor-estrela;
+        border-radius: 50%;
+        left: -50%;
+    }
+}
+
+
+@keyframes mechendo {
+    0%, 100% {
+       @include _animacao( -6deg );
+    }
+
+    50% {
+        @include _animacao( 6deg );
+    }
+}
+
+.diminuir {
+    overflow: hidden;
+    transition: 0.3s all;
+    transform: scale(0, 1);
+}

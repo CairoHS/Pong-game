@@ -1,0 +1,58 @@
+.game {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+
+    &__linha {
+        border: white 3px dashed;
+        height: 100%;
+        left: 50%;
+        width: 0;
+        @include absolute-centralizado;
+    }
+
+    &__barra {
+        background: white;
+        height: 15%;
+        top: 50%;
+        width: 1.5%;
+        @include absolute-centralizado;
+    }
+
+    &__esfera {
+        background-color: white;
+        border-radius: 50%;
+        @include absolute-centralizado;
+    }
+
+    &__botoes {
+        background-color: transparent;
+        height: 49%;
+        position: absolute;
+        right: 0;
+        width: 49%;
+        z-index: 5;
+
+        &--sobe {
+            top: 0;
+        }
+
+        &--desce {
+            bottom: 0;
+        }
+    }
+
+    &__botoes2 {
+        &--sobe {
+            top: 0;
+        }
+
+        &--desce {
+            bottom: 0;
+        }
+
+    }
+}

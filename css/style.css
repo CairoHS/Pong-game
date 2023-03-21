@@ -1,28 +1,18 @@
-@import url(reset.css);
-@import url(comeco.css);
-@import url(estrelas.css);
-@import url(game.css);
+/* Error: Undefined mixin.
+ *    ,
+ * 14 |         @include absolute-centralizado;
+ *    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *    '
+ *   game.scss 14:9  @import
+ *   style.scss 5:9  root stylesheet */
 
-:root{
-    --fundo: #0b1026;
-    --cor-nomes-menu : white;
-    --tamanho-titulo : 5rem;
-    --cor-titulo-1: #15f4ee;
-    --cor-titulo-2: #FF10F0;
-    --cor-estrela: white;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a    \2577 \a 14 \2502          @include absolute-centralizado;\a    \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   game.scss 14:9  @import\a   style.scss 5:9  root stylesheet";
 }
-
-
-body{
-    width: 100vw;
-    height: 100vh;
-    font-size: 16px;
-    font-family:'Press Start 2P', cursive;
-    overflow: hidden;
-    background-color: var(--fundo);
-}
-
-button{
-    font-family:'Press Start 2P', cursive;
-}
-
