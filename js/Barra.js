@@ -15,7 +15,7 @@ class Barra {
         this.#criaElemento( this.game );
         this.#colocaPosicao( this.game, this.lado);
         if(this.dispositivoMovel === "yes"){
-            this.barra.color = "pink";
+            this.barra.style.background = "pink";
         }
     }
 
