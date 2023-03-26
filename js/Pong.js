@@ -2,7 +2,7 @@ import Barra from "./Barra.js";
 import Bola from "./Bola.js";
 class Pong {
   constructor( pong, informacoes ) {
-    this.mobile = 'no';
+    this.mobile = "no";
     this.pong = pong;
     this.menu = pong.querySelector("#menu-pong");
     this.game = pong.querySelector( "#jogo-pong" );
@@ -50,7 +50,8 @@ class Pong {
   }
 
   #verificaMobile() {
-    if (navigator.userAgentData != undefined && navigator.userAgentData.mobile){
+    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+
       this.mobile = "yes";
     }
   }

@@ -5,7 +5,6 @@ class Barra {
         this.x;
         this.y;
         this.lado = lado;
-        this.largura;
         this.dispositivoMovel = dispositivoMovel;
         this.player = player;
         this.nivel = nivel;
@@ -14,9 +13,7 @@ class Barra {
     iniciar() {
         this.#criaElemento( this.game );
         this.#colocaPosicao( this.game, this.lado);
-        if(this.dispositivoMovel === "yes"){
-            this.barra.style.background = "pink";
-        }
+        this.#criaBotoes(this.dispositivoMovel,this.lado);
     }
 
     #criaElemento(jogo) {
@@ -36,6 +33,43 @@ class Barra {
 
     #atualizaPosicao() {
         this.barra.style.top = this.y + "px";
+    }
+ 
+    #criaBotoes(dispositivoMovel) { 
+        let botao1 = document.createElement("div"),
+        botao2 = document.createElement("div");
+
+        botao1.className = `game__botao--cima game__botao--${this.lado ? "direita" : "esqueda"}` ;
+        botao2.className = `game__botao--baixo game__botao--${this.lado ? "direita" : "esqueda"}`;
+
+        this.game.appendChild(botao1);
+        this.game.appendChild(botao2);
+
+        if(this.dispositivoMovel === "yes"){
+            this.#botoesmobile(botao1,botao2);
+        }
+        else{
+            this.#botoesDesktop();
+        }
+        
+    }
+
+    #botoesmobile(botao1,botao2) { 
+        let intervalos;
+        botao1.addEventListener( "touchstart" , () => {
+           invervalos = setInterval( () => {
+            this.x += 20;
+
+            },50,{passive: true})
+        });
+        botao1.addEventListener( "touchend" , () => {
+          clearInterval(intervalos);
+        },50,{passive: true})
+        
+    }
+
+    #botoesDesktop() {
+
     }
 }
 
