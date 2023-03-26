@@ -1,0 +1,26 @@
+.game {
+    height: 100%;
+    position: absolute;
+    top:0;
+    width: 100%;
+    z-index: 1;
+
+    &__linha {
+        position: absolute;
+        left: 50%;
+        transform: translateX( -50% );
+        width: 2px;
+        height: 100%;
+        background-color: rgba(white,0.5);
+    }
+
+    &__barra {
+        background-color: $cor-barra;
+        display: inline-block;
+        height: 20%;
+        position: absolute;
+        width: 15px;
+        transform: translate( -50%, -50% );
+    }
+
+}

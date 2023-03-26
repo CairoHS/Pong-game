@@ -1,6 +1,6 @@
 
 .menu {
-
+    position: absolute;
     align-items: center;
     color: $cor-palavras-menu;
     display: flex;
@@ -10,6 +10,7 @@
     text-align: center;
     transition: 0.5s all;
     width: 100%;
+    z-index: 2;
 
     &__titulo {
         color: $cor-titulo;
@@ -22,5 +23,6 @@
 
     &--diminuir {
         transform: scaleX(0);
+        z-index: -1;
     }
 }
