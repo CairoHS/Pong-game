@@ -84,6 +84,7 @@ table {
   top: 0;
   width: 100%;
   z-index: 1;
+  overflow: hidden;
 }
 .game__linha {
   position: absolute;
@@ -100,6 +101,34 @@ table {
   position: absolute;
   width: 15px;
   transform: translate(-50%, -50%);
+}
+.game__bola {
+  background-color: #fff;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.game__botao {
+  height: 45%;
+  position: absolute;
+  width: 45%;
+  z-index: 1;
+  background-color: transparent;
+  transition: 1s all linear;
+}
+.game__botao--cima {
+  top: 0;
+}
+.game__botao--baixo {
+  bottom: 0;
+}
+.game__botao--esquerda {
+  left: 0;
+}
+.game__botao--direita {
+  right: 0;
 }
 
 * {

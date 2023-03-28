@@ -4,6 +4,7 @@
     top:0;
     width: 100%;
     z-index: 1;
+    overflow: hidden;
 
     &__linha {
         position: absolute;
@@ -22,5 +23,41 @@
         width: 15px;
         transform: translate( -50%, -50% );
     }
+
+    &__bola {
+        background-color: $cor-barra;
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        transform: translate( -50%, -50% );
+        border-radius: 50%;
+    }
+
+    &__botao {
+        height: 45%;
+        position: absolute;
+        width: 45%;
+        z-index: 1;
+        background-color: transparent;
+        transition: 1s all linear;
+        &--cima {
+            top: 0;
+        }
+
+        &--baixo {
+            bottom: 0;
+        }
+
+        &--esquerda {
+            left:0;
+        }
+
+        &--direita {
+            right: 0;
+        }
+
+    }
+
+
 
 }

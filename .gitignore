@@ -1,0 +1,4 @@
+nome_modules/
+./package-lock.json
+./package.json
+./.eslintrc.json
