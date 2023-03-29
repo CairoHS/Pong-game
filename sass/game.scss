@@ -22,6 +22,7 @@
         position: absolute;
         width: 15px;
         transform: translate( -50%, -50% );
+        transition: 100ms all linear;
     }
 
     &__bola {

@@ -34,6 +34,7 @@ class Bola {
       this.#colisaoParede();
       this.#colisaoBarra();
       this.#atualizaPosicao();
+      this.#resetaParede();
     }, 20);
   }
 
@@ -63,6 +64,13 @@ class Bola {
         this.velocidade[0] = -this.velocidade[0];
         this.x += this.velocidade[0];
       }
+    }
+  }
+
+  #resetaParede() {
+    if (this.x > this.game.clientWidth || this.x < 0) {
+      this.x = this.game.clientWidth / 2;
+      this.y = this.game.clientHeight / 2;
     }
   }
 }
