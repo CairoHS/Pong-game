@@ -2,12 +2,12 @@ import Pong from "./Pong.js";
 
 const informacoes = {
   player: [
-    1,
     0,
+    1,
   ],
   nivel: [
-    1,
-    1,
+    20,
+    20,
   ],
 };
 

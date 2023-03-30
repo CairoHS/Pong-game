@@ -1,15 +1,18 @@
+import Maquina from './Maquina.js';
+
 class Barra {
   constructor(game, player, nivel, lado, dispositivoMovel) {
     this.game = game;
     this.barra = document.createElement('div');
     this.x = 0;
     this.y = 0;
+    this.nivel = nivel;
     this.lado = lado;
     this.dispositivoMovel = dispositivoMovel;
     this.player = player;
-    this.nivel = nivel;
     this.botoes = ['cima', 'baixo'];
-    this.velocidade = 20;
+    this.velocidade = 50;
+    this.maquina = '';
   }
 
   iniciar() {
@@ -19,6 +22,10 @@ class Barra {
       this.#criaBotao(this.botoes[0], -this.velocidade),
       this.#criaBotao(this.botoes[1], this.velocidade),
     ];
+    this.#criaMaquina();
+    if (!this.player) {
+      this.#iniciaMaquina();
+    }
   }
 
   #criaElemento(jogo) {
@@ -60,7 +67,7 @@ class Barra {
           this.y += numero;
         }
         this.#atualizaPosicao();
-      }, 50);
+      }, 100);
     }, { passive: true });
 
     div.addEventListener(eventos[1], () => {
@@ -103,6 +110,18 @@ class Barra {
     const posicaoInferior = this.y + numero - this.barra.clientHeight / 2 + 20;
     const posicaoSuperior = this.y + numero + this.barra.clientHeight / 2 - 20;
     return posicaoSuperior > this.game.clientHeight || posicaoInferior < 0;
+  }
+
+  #criaMaquina() {
+    this.maquina = new Maquina(this.barra, this.botoes, this.nivel, this.game.clientHeight);
+  }
+
+  #iniciaMaquina() {
+    this.maquina.iniciar();
+  }
+
+  infoMaquina(x, y) {
+    this.maquina.localBola([x, y], [this.x, this.y]);
   }
 }
 

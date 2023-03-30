@@ -8,7 +8,8 @@ class Bola {
     this.y = this.game.clientHeight / 2;
     this.barraEsquerda = barraEsquerda;
     this.barraDireita = barraDireita;
-    this.velocidade = [5, 5];
+    this.velocidade = [8, 4];
+    this.tempo = 40;
   }
 
   iniciar() {
@@ -28,14 +29,16 @@ class Bola {
   }
 
   mover() {
-    setInterval(() => {
+    setTimeout(() => {
       this.x += this.velocidade[0];
       this.y += this.velocidade[1];
       this.#colisaoParede();
       this.#colisaoBarra();
       this.#atualizaPosicao();
       this.#resetaParede();
-    }, 20);
+      this.#mandaInfoMaquina();
+      this.mover();
+    }, this.tempo);
   }
 
   #colisaoParede() {
@@ -52,6 +55,7 @@ class Bola {
       && this.x + this.raio < this.barraDireita.x + metadeBarraLargura) {
       if (this.y + this.raio < this.barraDireita.y + metadeBarraAltura
         && this.y - this.raio > this.barraDireita.y - metadeBarraAltura) {
+        this.tempo *= 0.97;
         this.velocidade[0] = -this.velocidade[0];
         this.x += this.velocidade[0];
       }
@@ -61,6 +65,7 @@ class Bola {
       && this.x - this.raio > this.barraEsquerda.x - metadeBarraLargura) {
       if (this.y + this.raio < this.barraEsquerda.y + metadeBarraAltura
          && this.y - this.raio > this.barraEsquerda.y - metadeBarraAltura) {
+        this.tempo *= 0.97;
         this.velocidade[0] = -this.velocidade[0];
         this.x += this.velocidade[0];
       }
@@ -71,7 +76,13 @@ class Bola {
     if (this.x > this.game.clientWidth || this.x < 0) {
       this.x = this.game.clientWidth / 2;
       this.y = this.game.clientHeight / 2;
+      this.tempo = 20;
     }
   }
+
+  #mandaInfoMaquina() {
+    this.barraDireita.infoMaquina(this.x, this.y);
+    this.barraEsquerda.infoMaquina(this.x, this.y);
+  } 
 }
 export default Bola;
